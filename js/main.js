@@ -1,64 +1,19 @@
 $(function (){
-  var controller = new ScrollMagic.Controller();
+    // Init ScrollMagic
+var ctrl = new ScrollMagic.Controller();
 
-  
-    var tween = TweenMax.to('#animation', 0.5, {
-    backgroundColor: 'rgb(255, 39, 46)',
-    scale: 5,
-    rotation: 360
-  });
-    var tween2 = TweenMax.from('#prima2', 0.5, {
-    backgroundColor: 'rgb(255, 39, 46)',
-    left: -400,
-        bottom:-200,
-    rotation: 40,
-        opacity: 0
-  });
-    var tween3 = TweenMax.from('.primoT', 0.5, {
-        autoAlpha: 0,
-        scale: 0.5,
-        y: '+=50',
-        ease:Linear.easeNone
-        
-    });
-    var tween4 = TweenMax.from('#sun', 0.5, {
-        autoAlpha: 0,
-        scale: 0.5,
-        ease:Linear.easeNone
-        
-    })
-
-  var containerScene = new ScrollMagic.Scene({
-      triggerElement: '#scene',
-      offset: 100,
-      duration: 400
-    })
-    .setTween(tween2)
-    .setPin('#prima2')
-    .addIndicators();
-    
-    var containerTesto = new ScrollMagic.Scene({
-      triggerElement: '#scene',
-      offset: 100,
-      duration: 400
-    })
-    .setTween(tween3);
-    
-    var sun = new ScrollMagic.Scene({
-      triggerElement: '#scene',
-      offset: 100,
-      duration: 400
-    })
-    .setTween(tween4)
-    .addIndicators({name: "sun (duration: 200)"});
-
+var tween =  new TimelineMax()
+.from("#img1", 1, {top: 200, right: 300, rotation: -40, autoAlpha: 0})
+.from("#sun", 0.5, {scale: 0, opacity: 0},"-=0.5")
+.from(".primoT", 1.5, {top: 100, opacity: 0},"-=0.5");
     
     
-    controller.addScene([
-        containerScene,
-        containerTesto,
-        sun
-    ]);
+var scene = new ScrollMagic.Scene({triggerElement: "#one", duration: 300})
+					// animate color and top border in relation to scroll position
+				.setPin("#one")
+                .setTween(tween)// the tween durtion can be omitted and defaults to 1
+				.addIndicators({name: "2 (duration: 300)"}) // add indicators (requires plugin)
+				.addTo(ctrl);
     
     $(".player").YTPlayer();
 });

@@ -18,7 +18,17 @@ html, body {
     position: relative;
     margin-top: 80px
 }
-
+section {
+  height: 100%;
+  position: relative;
+ 
+}
+ 
+/* Center aligned first section */
+section .inner {
+  margin: 0 auto;
+  max-width: 85%;
+}
 
 #block {
     padding: 10px;
@@ -74,8 +84,8 @@ p {
     position: absolute;
     width: 300px;
     height: auto;
-    top: 20px;
-    left: -100px;
+    top: -63px;
+    left: -48px;
    
 }
 
@@ -84,4 +94,28 @@ p {
     margin: 100px 0 0 50px;
     width: 400px;
     height: auto;
+}
+.spacer.s2 {
+    min-height: 200px;
+}
+.spacer.s1 {
+    min-height: 100px;
+}
+.spacer.s0 {
+    min-height: 1px;
+}
+
+.immagini {
+    width: 500px;
+    height: auto;
+    position: relative;
+    top:-200px;
+}
+
+.primoT {
+    display: inline-block;
+        position: relative;
+    left: 80px;
+    text-align: justify;
+    width: 450px;
 }
